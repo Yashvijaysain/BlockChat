@@ -52,28 +52,28 @@ const Welcome = () => {
   }
 
   return (
-    <div className="min-h-[calc(100vh-64px)] overflow-y-auto bg-[var(--bg-primary)] px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto grid w-full max-w-6xl gap-6 lg:grid-cols-[1fr_420px]">
-        <section className="flex min-h-[560px] flex-col justify-between rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 shadow-2xl shadow-black/20 sm:p-8">
+    <div className="h-[calc(100vh-64px)] h-[calc(100dvh-64px)] overflow-y-auto bg-[var(--bg-primary)] px-3 py-4 sm:px-6 sm:py-8 lg:px-8">
+      <div className="mx-auto grid w-full min-w-0 max-w-6xl gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(340px,420px)]">
+        <section className="flex min-h-0 min-w-0 flex-col justify-between rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-4 shadow-2xl shadow-black/20 sm:min-h-[560px] sm:p-8">
           <div>
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#25d366]/30 bg-[#25d366]/10 px-3 py-1.5 text-sm font-medium text-[#9ff0bd]">
+            <div className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-[#25d366]/30 bg-[#25d366]/10 px-3 py-1.5 text-xs font-medium text-[#9ff0bd] sm:mb-8 sm:text-sm">
               <span className="h-2 w-2 rounded-full bg-[#25d366]"></span>
-              Devnet messaging workspace
+              <span className="truncate">Devnet messaging workspace</span>
             </div>
 
-            <h2 className="max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h2 className="max-w-2xl break-words text-[1.7rem] font-semibold leading-tight tracking-tight text-white min-[380px]:text-3xl sm:text-5xl">
               A cleaner place to chat with Solana wallets.
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--text-muted)] sm:text-lg">
+            <p className="mt-4 max-w-2xl break-words text-sm leading-6 text-[var(--text-muted)] sm:text-lg sm:leading-7">
               Block Chat now behaves more like a modern messenger: a conversation list on the left,
               focused chat on the right, and wallet actions kept out of the way.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-3 sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3">
             {features.map((feature) => (
-              <div key={feature.title} className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-4">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#25d366]/12 text-[#25d366]">
+              <div key={feature.title} className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-3 sm:p-4">
+                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#25d366]/12 text-[#25d366] sm:h-10 sm:w-10">
                   {feature.icon}
                 </div>
                 <h3 className="text-sm font-semibold text-white">{feature.title}</h3>
@@ -82,12 +82,12 @@ const Welcome = () => {
             ))}
           </div>
 
-          <div className="mt-10 rounded-xl border border-[var(--border-color)] bg-[#0f1a20] p-4">
+          <div className="mt-8 rounded-xl border border-[var(--border-color)] bg-[#0f1a20] p-3 sm:mt-10 sm:p-4">
             <div className="mb-4 flex items-center gap-3 border-b border-[var(--border-color)] pb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25d366] text-[#07130f]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25d366] text-[#07130f] sm:h-10 sm:w-10">
                 <FiMessageSquare />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-semibold text-white">Block Chat Preview</p>
                 <p className="text-xs text-[var(--text-muted)]">Connected chat layout</p>
               </div>
@@ -95,7 +95,7 @@ const Welcome = () => {
             <div className="space-y-3">
               {previewMessages.map((message) => (
                 <div key={message.text} className={`flex ${message.side === 'right' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[78%] rounded-2xl px-4 py-2 text-sm shadow-sm ${
+                  <div className={`max-w-[86%] rounded-2xl px-3 py-2 text-sm shadow-sm sm:max-w-[78%] sm:px-4 ${
                     message.side === 'right'
                       ? 'rounded-br-md bg-[var(--message-sent)] text-white'
                       : 'rounded-bl-md bg-[var(--message-received)] text-[var(--text-secondary)]'
@@ -109,13 +109,13 @@ const Welcome = () => {
           </div>
         </section>
 
-        <aside className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 shadow-2xl shadow-black/20">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#5865f2] text-white">
+        <aside className="min-w-0 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-4 shadow-2xl shadow-black/20 sm:p-6">
+          <div className="mb-5 flex items-center gap-3 sm:mb-6">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#5865f2] text-white sm:h-11 sm:w-11">
               <FiShield />
             </div>
-            <div>
-              <h1 className="text-xl font-semibold text-white">Get started</h1>
+            <div className="min-w-0">
+              <h1 className="text-lg font-semibold text-white sm:text-xl">Get started</h1>
               <p className="text-sm text-[var(--text-muted)]">Connect wallet, then create your profile.</p>
             </div>
           </div>

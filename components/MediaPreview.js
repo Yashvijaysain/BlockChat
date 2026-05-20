@@ -60,10 +60,10 @@ const MediaPreview = ({ file, type, onSend, onCancel }) => {
   }
 
   return (
-    <div className="modal-overlay px-4" onClick={onCancel}>
-      <div className="w-full max-w-3xl rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] shadow-2xl shadow-black/30" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between border-b border-[var(--border-color)] px-5 py-4">
-          <div>
+    <div className="modal-overlay" onClick={onCancel}>
+      <div className="max-h-[calc(100dvh-2rem)] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] shadow-2xl shadow-black/30" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-start justify-between gap-3 border-b border-[var(--border-color)] px-4 py-4 sm:items-center sm:px-5">
+          <div className="min-w-0">
             <h2 className="text-lg font-semibold capitalize text-white">Preview {type}</h2>
             <p className="text-sm text-[var(--text-muted)]">Review before sending.</p>
           </div>
@@ -76,13 +76,13 @@ const MediaPreview = ({ file, type, onSend, onCancel }) => {
           </button>
         </div>
 
-        <div className="p-5">
+        <div className="p-4 sm:p-5">
           <div className="mb-4 rounded-xl border border-[var(--border-color)] bg-[#071116] p-4">
             {renderPreview()}
           </div>
 
-          <div className="mb-4 flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-elevated)] text-[var(--text-muted)]">
+          <div className="mb-4 flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-3 sm:p-4">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--bg-elevated)] text-[var(--text-muted)]">
               <FiFile />
             </div>
             <div className="min-w-0 flex-1">
@@ -115,11 +115,11 @@ const MediaPreview = ({ file, type, onSend, onCancel }) => {
             </div>
           </div>
 
-          <div className="flex gap-3">
-            <button onClick={onCancel} className="btn btn-secondary flex-1">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <button onClick={onCancel} className="btn btn-secondary">
               Cancel
             </button>
-            <button onClick={() => onSend(caption)} className="btn btn-primary flex-1">
+            <button onClick={() => onSend(caption)} className="btn btn-primary">
               <span className="flex items-center justify-center gap-2">
                 <FiSend />
                 <span>Send media</span>

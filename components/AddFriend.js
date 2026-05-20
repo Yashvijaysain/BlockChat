@@ -48,10 +48,10 @@ const AddFriend = ({ onClose }) => {
   });
 
   return (
-    <div className="modal-overlay px-4" onClick={onClose}>
-      <div className="w-full max-w-2xl rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] shadow-2xl shadow-black/30" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between border-b border-[var(--border-color)] px-5 py-4">
-          <div>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] shadow-2xl shadow-black/30" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-start justify-between gap-3 border-b border-[var(--border-color)] px-4 py-4 sm:items-center sm:px-5">
+          <div className="min-w-0">
             <h2 className="text-lg font-semibold text-white">Add friend</h2>
             <p className="text-sm text-[var(--text-muted)]">Connect with another wallet profile.</p>
           </div>
@@ -64,7 +64,7 @@ const AddFriend = ({ onClose }) => {
           </button>
         </div>
 
-        <div className="p-5">
+        <div className="p-4 sm:p-5">
           <div className="mb-5 grid grid-cols-2 rounded-xl bg-[var(--bg-tertiary)] p-1">
             <button
               onClick={() => setSearchMode('address')}
@@ -125,18 +125,18 @@ const AddFriend = ({ onClose }) => {
                 <p className="mt-2 text-xs text-[var(--text-muted)]">{friendName.length}/32 characters</p>
               </div>
 
-              <div className="flex gap-3 pt-2">
+              <div className="grid gap-3 pt-2 sm:grid-cols-2">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="btn btn-secondary flex-1"
+                  className="btn btn-secondary"
                   disabled={loading}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn btn-primary flex-1"
+                  className="btn btn-primary"
                   disabled={loading}
                 >
                   <span className="flex items-center justify-center gap-2">
@@ -148,11 +148,11 @@ const AddFriend = ({ onClose }) => {
             </form>
           ) : (
             <div>
-              <div className="mb-4 flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#25d366]/12 text-[#25d366]">
+              <div className="mb-4 flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-3 sm:p-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#25d366]/12 text-[#25d366]">
                   <FiSearch />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm font-semibold text-white">{availableUsers.length} users available</p>
                   <p className="text-xs text-[var(--text-muted)]">Select a user to fill the form.</p>
                 </div>

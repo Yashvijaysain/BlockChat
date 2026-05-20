@@ -52,10 +52,10 @@ const UserProfile = ({ onClose }) => {
   if (!currentUser) return null
 
   return (
-    <div className="modal-overlay px-4" onClick={onClose}>
-      <div className="w-full max-w-md rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] shadow-2xl shadow-black/30" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between border-b border-[var(--border-color)] px-5 py-4">
-          <div>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] shadow-2xl shadow-black/30" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-start justify-between gap-3 border-b border-[var(--border-color)] px-4 py-4 sm:items-center sm:px-5">
+          <div className="min-w-0">
             <h2 className="text-lg font-semibold text-white">Profile</h2>
             <p className="text-sm text-[var(--text-muted)]">Manage your Block Chat identity</p>
           </div>
@@ -68,7 +68,7 @@ const UserProfile = ({ onClose }) => {
           </button>
         </div>
 
-        <div className="p-5">
+        <div className="p-4 sm:p-5">
           <div className="flex items-center gap-4">
             <div className="relative shrink-0">
               {currentUser.profilePicture ? (
@@ -124,7 +124,7 @@ const UserProfile = ({ onClose }) => {
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-3">
+          <div className="mt-6 grid grid-cols-1 gap-3 min-[380px]:grid-cols-2">
             <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] p-4">
               <FiUsers className="mb-3 text-[#25d366]" />
               <p className="text-2xl font-semibold text-white">{currentUser.friendCount || 0}</p>

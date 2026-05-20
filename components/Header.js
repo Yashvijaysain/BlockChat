@@ -17,15 +17,15 @@ const Header = () => {
   const { currentUser } = useChatApp()
 
   return (
-    <header className="sticky top-0 z-40 h-16 border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
-      <div className="h-full px-4 sm:px-6">
-        <div className="flex h-full items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#25d366] text-[#07130f] shadow-sm">
-              <FiMessageSquare className="text-xl" />
+    <header className="sticky top-0 z-40 h-16 shrink-0 border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
+      <div className="h-full px-3 sm:px-6">
+        <div className="flex h-full items-center justify-between gap-2 sm:gap-4">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#25d366] text-[#07130f] shadow-sm sm:h-10 sm:w-10">
+              <FiMessageSquare className="text-lg sm:text-xl" />
             </div>
-            <div>
-              <h1 className="text-base font-semibold tracking-tight text-white sm:text-lg">Block Chat</h1>
+            <div className="min-w-0">
+              <h1 className="truncate text-sm font-semibold tracking-tight text-white sm:text-lg">Block Chat</h1>
               <p className="hidden items-center gap-1.5 text-xs text-[var(--text-muted)] sm:flex">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#25d366]"></span>
                 <span>Solana messaging</span>
@@ -33,7 +33,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex min-w-0 items-center gap-3">
+          <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
             {publicKey && currentUser ? (
               <div className="flex min-w-0 items-center gap-3">
                 <div className="hidden min-w-0 items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-tertiary)] px-3 py-2 md:flex">

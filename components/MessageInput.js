@@ -93,7 +93,7 @@ const MessageInput = () => {
   const disabled = uploading || loading;
 
   return (
-    <div className="shrink-0 border-t border-[var(--border-color)] bg-[var(--bg-secondary)] px-3 py-3 sm:px-5">
+    <div className="shrink-0 border-t border-[var(--border-color)] bg-[var(--bg-secondary)] px-2 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 sm:px-5">
       {showSolInput && (
         <div className="mx-auto mb-3 max-w-4xl rounded-xl border border-[#25d366]/25 bg-[#25d366]/10 p-3">
           <div className="mb-2 flex items-center justify-between gap-3">
@@ -125,8 +125,8 @@ const MessageInput = () => {
         </div>
       )}
 
-      <form onSubmit={handleSendMessage} className="mx-auto flex max-w-4xl items-end gap-2">
-        <div className="flex items-center gap-1 rounded-full bg-[var(--bg-tertiary)] p-1">
+      <form onSubmit={handleSendMessage} className="mx-auto flex max-w-4xl items-end gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 items-center gap-1 rounded-full bg-[var(--bg-tertiary)] p-1">
           <button
             type="button"
             onClick={() => handleFileUpload('image')}
@@ -190,7 +190,7 @@ const MessageInput = () => {
         <button
           type="submit"
           disabled={(!message.trim() && !showSolInput) || disabled}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25d366] text-[#07130f] hover:bg-[#35e173] disabled:cursor-not-allowed disabled:bg-[var(--bg-elevated)] disabled:text-[var(--text-muted)]"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#25d366] text-[#07130f] hover:bg-[#35e173] disabled:cursor-not-allowed disabled:bg-[var(--bg-elevated)] disabled:text-[var(--text-muted)] sm:h-12 sm:w-12"
           title="Send"
         >
           <FiSend className="text-lg" />

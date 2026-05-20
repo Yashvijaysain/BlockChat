@@ -146,7 +146,7 @@ const ChatWindow = () => {
 
   return (
     <section className="flex h-full min-w-0 flex-col bg-[var(--bg-primary)]">
-      <div className="flex h-16 shrink-0 items-center justify-between gap-4 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] px-4">
+      <div className="flex h-16 shrink-0 items-center justify-between gap-2 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] px-3 sm:gap-4 sm:px-4">
         <div className="flex min-w-0 items-center gap-3">
           <div className="relative shrink-0">
             {selectedFriend.profilePicture ? (
@@ -183,10 +183,10 @@ const ChatWindow = () => {
         </div>
 
         <div className="flex items-center gap-1">
-          <button className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-white" title="Voice call">
+          <button className="hidden h-9 w-9 items-center justify-center rounded-full text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-white sm:flex" title="Voice call">
             <FiPhone />
           </button>
-          <button className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-white" title="Video call">
+          <button className="hidden h-9 w-9 items-center justify-center rounded-full text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-white sm:flex" title="Video call">
             <FiVideo />
           </button>
           <button className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-white" title="More">
@@ -195,10 +195,10 @@ const ChatWindow = () => {
         </div>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5 sm:px-6">
+      <div className="min-h-0 flex-1 overflow-y-auto px-3 py-4 sm:px-6 sm:py-5">
         {messages.length === 0 ? (
           <div className="flex h-full items-center justify-center text-center">
-            <div className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] px-6 py-5">
+            <div className="max-w-[90%] rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)] px-5 py-4 sm:px-6 sm:py-5">
               <h4 className="font-semibold text-white">No messages yet</h4>
               <p className="mt-1 text-sm text-[var(--text-muted)]">Send the first message to start this chat.</p>
             </div>

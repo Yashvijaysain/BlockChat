@@ -30,22 +30,22 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="relative flex h-[calc(100vh-64px)] overflow-hidden bg-[var(--bg-primary)]">
+      <div className="relative flex h-[calc(100vh-64px)] h-[calc(100dvh-64px)] overflow-hidden bg-[var(--bg-primary)]">
         <div className={`
-          w-full border-r border-[var(--border-color)] bg-[var(--bg-secondary)] md:block md:w-[340px] lg:w-[380px]
+          h-full w-full border-r border-[var(--border-color)] bg-[var(--bg-secondary)] md:block md:w-[340px] lg:w-[380px]
           ${isMobileMenuOpen ? 'block' : 'hidden md:block'}
         `}>
           <FriendsList />
         </div>
 
         <div className={`
-          min-w-0 flex-1 bg-[var(--bg-primary)]
+          h-full min-w-0 flex-1 bg-[var(--bg-primary)]
           ${isMobileMenuOpen ? 'hidden md:block' : 'block'}
         `}>
           <ChatWindow />
         </div>
 
-        <div className="fixed bottom-5 right-5 z-30 flex flex-col gap-2">
+        <div className="fixed bottom-[calc(88px+env(safe-area-inset-bottom))] right-4 z-30 flex flex-col gap-2 md:bottom-5 md:right-5">
           <button
             onClick={() => setShowProfile(true)}
             className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-tertiary)] text-[var(--text-secondary)] shadow-lg shadow-black/20 hover:bg-[var(--bg-hover)] hover:text-white"
