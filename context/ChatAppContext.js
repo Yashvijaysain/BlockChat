@@ -8,6 +8,19 @@ import IDL from '../lib/idl.json';
 const ChatAppContext = createContext();
 const DEFAULT_PROGRAM_ID = '51TsZDgA6j8wp1zPSxTga6oLW6gj1kqxAbQQu6FxaWmn';
 
+const getProgramId = () => {
+  const configuredProgramId = (process.env.NEXT_PUBLIC_PROGRAM_ID || DEFAULT_PROGRAM_ID).trim();
+
+  try {
+    return new PublicKey(configuredProgramId);
+  } catch {
+    console.warn(
+      `Invalid NEXT_PUBLIC_PROGRAM_ID "${configuredProgramId}". Falling back to ${DEFAULT_PROGRAM_ID}.`
+    );
+    return new PublicKey(DEFAULT_PROGRAM_ID);
+  }
+};
+
 export const useChatApp = () => {
   const context = useContext(ChatAppContext);
   if (!context) {
@@ -21,8 +34,7 @@ export const ChatAppProvider = ({ children }) => {
   const wallet = useWallet();
 
   // Program ID from your deployed contract
-  const programId = (process.env.NEXT_PUBLIC_PROGRAM_ID || DEFAULT_PROGRAM_ID).trim();
-  const PROGRAM_ID = new PublicKey(programId);
+  const PROGRAM_ID = useMemo(() => getProgramId(), []);
   const NETWORK = process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet';
 
   // State
