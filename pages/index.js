@@ -8,7 +8,7 @@ import ChatWindow from '../components/ChatWindow';
 import UserProfile from '../components/UserProfile';
 import AdminDashboard from '../components/AdminDashboard';
 import Loader from '../components/Loader';
-import { FiUser, FiShield } from 'react-icons/fi';
+import { FiMenu, FiShield, FiUser, FiX } from 'react-icons/fi';
 
 export default function Home() {
   const { publicKey } = useWallet();
@@ -30,73 +30,46 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="h-[calc(100vh-80px)] flex">
-        {/* Sidebar - Friends List */}
+      <div className="relative flex h-[calc(100vh-64px)] overflow-hidden bg-[var(--bg-primary)]">
         <div className={`
-          w-full md:w-80 lg:w-96 border-r border-gray-700 bg-[var(--bg-secondary)]
+          w-full border-r border-[var(--border-color)] bg-[var(--bg-secondary)] md:block md:w-[340px] lg:w-[380px]
           ${isMobileMenuOpen ? 'block' : 'hidden md:block'}
         `}>
           <FriendsList />
         </div>
 
-        {/* Main Chat Area */}
         <div className={`
-          flex-1 bg-[var(--bg-primary)]
+          min-w-0 flex-1 bg-[var(--bg-primary)]
           ${isMobileMenuOpen ? 'hidden md:block' : 'block'}
         `}>
           <ChatWindow />
         </div>
 
-        {/* Floating Action Buttons */}
-        <div className="fixed bottom-6 right-6 flex flex-col space-y-3">
-          {/* Profile Button */}
+        <div className="fixed bottom-5 right-5 z-30 flex flex-col gap-2">
           <button
             onClick={() => setShowProfile(true)}
-            className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-tertiary)] text-[var(--text-secondary)] shadow-lg shadow-black/20 hover:bg-[var(--bg-hover)] hover:text-white"
             title="Profile"
           >
-            <FiUser className="text-white text-xl" />
+            <FiUser className="text-lg" />
           </button>
 
-          {/* Admin Button (only visible to admin) */}
           {isAdmin && (
             <button
               onClick={() => setShowAdmin(true)}
-              className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-yellow-500/30 bg-yellow-500/12 text-yellow-200 shadow-lg shadow-black/20 hover:bg-yellow-500/20"
               title="Admin Dashboard"
             >
-              <FiShield className="text-white text-xl" />
+              <FiShield className="text-lg" />
             </button>
           )}
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-14 h-14 rounded-full bg-gray-700 flex items-center justify-center shadow-lg"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25d366] text-[#07130f] shadow-lg shadow-black/20 md:hidden"
             title="Toggle Menu"
           >
-            <svg
-              className="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {isMobileMenuOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
           </button>
         </div>
       </div>
