@@ -104,21 +104,21 @@ export const ALLOWED_AUDIO_TYPES = ['audio/mpeg', 'audio/wav', 'audio/ogg', 'aud
 
 // Upload image with validation
 export const uploadImage = async (file) => {
-  validateFileSize(file, 10); // 10MB max for images
+  validateFileSize(file, 4); // Vercel serverless request limit
   validateFileType(file, ALLOWED_IMAGE_TYPES);
   return await uploadFileToIPFS(file);
 };
 
 // Upload video with validation
 export const uploadVideo = async (file) => {
-  validateFileSize(file, 100); // 100MB max for videos
+  validateFileSize(file, 4); // Vercel serverless request limit
   validateFileType(file, ALLOWED_VIDEO_TYPES);
   return await uploadFileToIPFS(file);
 };
 
 // Upload audio with validation
 export const uploadAudio = async (file) => {
-  validateFileSize(file, 50); // 50MB max for audio
+  validateFileSize(file, 4); // Vercel serverless request limit
   validateFileType(file, ALLOWED_AUDIO_TYPES);
   return await uploadFileToIPFS(file);
 };

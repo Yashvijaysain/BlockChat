@@ -18,6 +18,8 @@ PINATA_JWT=your_pinata_jwt
 
 `PINATA_JWT`, `PINATA_API_KEY`, and `PINATA_SECRET_KEY` are server-only. Do not create `NEXT_PUBLIC_` versions for Pinata secrets.
 
+Media uploads are proxied through Next.js API routes so Pinata credentials stay private. On Vercel, keep uploaded files under 4 MB unless you replace this with a signed direct-upload flow.
+
 ## Local Development
 
 ```bash

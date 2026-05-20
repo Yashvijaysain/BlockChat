@@ -25,7 +25,7 @@ const readRawBody = (req) =>
   new Promise((resolve, reject) => {
     const chunks = [];
     let size = 0;
-    const maxSize = 100 * 1024 * 1024;
+    const maxSize = 4 * 1024 * 1024;
 
     req.on('data', (chunk) => {
       size += chunk.length;
