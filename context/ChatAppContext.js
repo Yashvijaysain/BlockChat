@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import IDL from '../lib/idl.json';
 
 const ChatAppContext = createContext();
+const DEFAULT_PROGRAM_ID = '51TsZDgA6j8wp1zPSxTga6oLW6gj1kqxAbQQu6FxaWmn';
 
 export const useChatApp = () => {
   const context = useContext(ChatAppContext);
@@ -20,7 +21,8 @@ export const ChatAppProvider = ({ children }) => {
   const wallet = useWallet();
 
   // Program ID from your deployed contract
-  const PROGRAM_ID = new PublicKey(process.env.NEXT_PUBLIC_PROGRAM_ID || 'YOUR_PROGRAM_ID_HERE');
+  const programId = (process.env.NEXT_PUBLIC_PROGRAM_ID || DEFAULT_PROGRAM_ID).trim();
+  const PROGRAM_ID = new PublicKey(programId);
   const NETWORK = process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet';
 
   // State
