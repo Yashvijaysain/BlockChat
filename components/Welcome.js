@@ -80,7 +80,7 @@ const Welcome = () => {
 
           <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight">
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Solana Chat
+              Block Chat
             </span>
           </h1>
 
@@ -108,7 +108,7 @@ const Welcome = () => {
                     Program Not Initialized
                   </h2>
                   <p className="text-gray-300 mb-6 text-base leading-relaxed">
-                    The Solana Chat program needs to be initialized before users can create accounts.
+                    The Block Chat program needs to be initialized before users can create accounts.
                     This is a one-time setup that must be done by the program owner.
                   </p>
                   <button

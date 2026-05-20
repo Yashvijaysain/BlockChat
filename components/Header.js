@@ -30,7 +30,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Solana Chat
+                Block Chat
               </h1>
               <p className="text-xs text-gray-400 hidden md:block flex items-center space-x-1">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>

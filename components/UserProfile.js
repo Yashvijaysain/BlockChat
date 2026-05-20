@@ -48,7 +48,6 @@ const UserProfile = ({ onClose }) => {
       toast.error('Failed to copy address')
     }
   }
-  console.log(currentUser)
   if (!currentUser) return null
 
   return (
